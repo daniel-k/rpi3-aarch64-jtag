@@ -1,0 +1,8 @@
+*.o
+*.elf
+*.img
+*.config
+*.includes
+*.files
+*.creator
+*.creator.user
