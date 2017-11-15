@@ -28,6 +28,10 @@
 
 .globl _start
 _start:
+	mrs x2, MPIDR_EL1
+	and x2, x2, #0xFF
+	cbnz x2, hang
+
 	ldr x5, =0x00100000
 	mov sp, x5
 	bl main
