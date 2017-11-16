@@ -58,7 +58,7 @@ rpi3.cpu1 cluster 0 core 1 multi core
 ## Load and start program
 
 ```
-> halt; load_image kernel.img 0 bin; reg pc 0; resume
+> targets rpi3.cpu; halt; load_image kernel.img 0 bin; reg pc 0; resume
 halt; load_image kernel.img 0 bin; reg pc 0; resume
 target state: halted
 target halted in ARM64 state due to debug-request, current mode: EL3H
@@ -72,6 +72,7 @@ pc (/64): 0x0000000000000000
 ## OpenOCD commands
 
  - `reset init`: prepare CPU for debugging
+ - `targets`: list and select cores
  - `halt`: stop execution
  - `resume`: resume execution
  - `reg`: show registers
@@ -79,3 +80,4 @@ pc (/64): 0x0000000000000000
  - `step`: single-step
  - `bp ADDR SIZE [hw]`: set a breakpoint at ADDR (you must supply the opcode size)
  - `load_image FILENAME ADDR [TYPE]`: copy program to RAM at given address
+ - `poll`: show debugging state
