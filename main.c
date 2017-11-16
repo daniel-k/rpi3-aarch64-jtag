@@ -181,7 +181,7 @@ static void uart_init(void)
 int main()
 {
 	uart_init();
-	dbg_puts("Waiting for JTAG\r\n");
+	dbg_puts("\r\nWaiting for JTAG\r\n");
 	enable_jtag();
 	while (1)
 	{
