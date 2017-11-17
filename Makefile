@@ -12,11 +12,11 @@ all: $(KERNEL)
 %.o: %.c
 	${CROSS}gcc ${CFLAGS} -c -o $@ $<
 
-$(NAME): main.o startup.o
-	${CROSS}ld $(LDFLAGS) -o $@ -T linkerscript.ld $<
+$(NAME): main.o startup.o led.o
+	${CROSS}ld $(LDFLAGS) -o $@ -T linkerscript.ld $^
 
 $(KERNEL): $(NAME)
 	${CROSS}objcopy --gap-fill=0xff -j .text -j .rodata -j .data -O binary $< $@
 
 clean:
-	rm -f $(KERNEL) $(NAME) main.o startup.o
+	rm -f $(KERNEL) $(NAME) main.o startup.o led.o
